@@ -1,4 +1,4 @@
-package com.example;
+package com.example.SpringVaadin;
 
 import javax.annotation.PostConstruct;
 

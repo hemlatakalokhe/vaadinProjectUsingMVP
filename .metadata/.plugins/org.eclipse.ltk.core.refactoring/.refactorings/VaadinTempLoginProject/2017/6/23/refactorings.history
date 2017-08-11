@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;VaadinAndJPA/src/main/java/com.dss.basicproject.UI&apos;&#x0D;&#x0A;- Original project: &apos;VaadinTempLoginProject&apos;&#x0D;&#x0A;- Destination element: &apos;VaadinAndJPA/src/main/java/com.dss.basicproject.UI&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     LoginView.java&#x0D;&#x0A;     RegisterView.java&#x0D;&#x0A;     SuccessView.java&#x0D;&#x0A;     MainView.java" description="Copy files" destination="=VaadinAndJPA/src\/main\/java&lt;com.dss.basicproject.UI" element1="src/com/example/loginproject/LoginView.java" element2="src/com/example/loginproject/RegisterView.java" element3="src/com/example/loginproject/SuccessView.java" element4="src/com/example/loginproject/MainView.java" files="4" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1496636818620" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,36 @@
+package com.example.BasicProjectUsingVaadin;
+
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.BasicProjectUsingVaadin.impl.SpringDataServiceImpl;
+
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Window;
+
+
+public class DeleteWindow extends Window
+{
+	public static final String NAME = "Delete";
+	@Autowired
+	private SpringDataServiceImpl serviceImpl;
+	
+	
+	private Label label;
+	private Button yes;
+	private Button no;
+
+	public DeleteWindow() {
+		center();
+label=new Label("Do you want to continue..");
+		
+		yes=new Button("Yes");
+		no=new Button("No");
+		
+		
+	}
+
+	
+}

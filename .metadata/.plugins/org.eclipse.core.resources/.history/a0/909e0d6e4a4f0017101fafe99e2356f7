@@ -1,0 +1,25 @@
+package com.example.BasicProjectUsingVaadin.model;
+
+import com.example.BasicProjectUsingVaadin.dto.CountryDTO;
+
+public class StyleOverFilter {
+	private String styleNo;
+	private CountryDTO country;
+
+	public String getStyleNo() {
+		return styleNo;
+	}
+
+	public void setStyleNo(String styleNo) {
+		this.styleNo = styleNo;
+	}
+
+	public CountryEntity getCountry() {
+		return country;
+	}
+
+	public void setCountry(CountryDTO countryDTO) {
+		this.country = countryDTO;
+	}
+
+}

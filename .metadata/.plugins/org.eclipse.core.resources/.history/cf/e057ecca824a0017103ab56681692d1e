@@ -1,0 +1,38 @@
+package com.example.SpringVaadinDemo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
+import com.vaadin.navigator.Navigator;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.spring.navigator.SpringViewProvider;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
+
+@SpringUI
+public class VaadinUI extends UI{
+
+	
+	@Autowired
+	private SpringViewProvider viewProvider;
+	@Override
+	protected void init(VaadinRequest request) {
+		Button submit=new Button("SUBMIT");
+	new Navigator(this, this);
+		submit.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+		getNavigator().addView(MainView.NAME, MainView.class);
+		getNavigator().addProvider(provider);
+			getNavigator().navigateTo(MainView.NAME);
+			
+			}
+		});
+		setContent(submit);
+	}
+
+}

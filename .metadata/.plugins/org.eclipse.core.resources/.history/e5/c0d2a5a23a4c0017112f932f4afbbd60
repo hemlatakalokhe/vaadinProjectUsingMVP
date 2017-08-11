@@ -1,0 +1,101 @@
+package com.example.BasicProjectUsingVaadin;
+
+import java.util.Collection;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.BasicProjectUsingVaadin.impl.MasterServiceImpl;
+import com.example.BasicProjectUsingVaadin.impl.SpringDataServiceImpl;
+import com.example.BasicProjectUsingVaadin.model.CountryEntity;
+import com.example.BasicProjectUsingVaadin.model.StyleEntity;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.VaadinSession;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.VerticalLayout;
+
+@SpringView(name=UpdateView.NAME)
+public class UpdateView extends FormLayout implements View
+{
+
+	public static final String NAME = "Update";
+	private Label label;
+	private TextField styleNo;
+	private TextField styleDesc;
+	private Button update;
+	
+	@Autowired
+	private MasterServiceImpl masterServiceImpl;
+	
+	@Autowired
+	private SpringDataServiceImpl serviceImpl;
+	private HorizontalLayout horizontalLayout;
+	private Button cancel;
+	private int id=0;
+	@Override
+	public void enter(ViewChangeEvent event) 
+	{
+		Set<StyleEntity> style=(Set<StyleEntity>) VaadinSession.getCurrent().getAttribute("styleData");
+		styleNo=new TextField("Enter Style Number");
+		styleDesc=new TextField("Enter Style Description");
+		update=new Button("Update");
+		cancel=new Button("Cancel");
+		
+		horizontalLayout=new HorizontalLayout();
+		
+		Iterable<CountryEntity> countryEntities=masterServiceImpl.findAllCountry();
+		ComboBox<CountryEntity> countryComboBox=new ComboBox<CountryEntity>("Select Country");
+		countryComboBox.setItems((Collection<CountryEntity>) countryEntities);
+		
+		
+		for (StyleEntity styleEntity : style) {
+			id=styleEntity.getId();
+			styleNo.setValue(styleEntity.getStyleNo());
+			styleDesc.setValue(styleEntity.getDesc());
+			countryComboBox.setValue(styleEntity.getCountry());
+		}
+		
+		
+		update.addClickListener(e1->{
+			
+			StyleEntity styleEntities=serviceImpl.findByStyleId(id);
+			
+			styleEntities.setStyleNo(styleNo.getValue());
+			styleEntities.setDesc(styleDesc.getValue());
+			styleEntities.setCountry(countryComboBox.getSelectedItem().get());
+
+			if(serviceImpl.isStyleExist(styleEntities, styleEntities.getCountry()))
+			{
+				Notification.show("Already Exist");
+			}
+			else
+			{
+				serviceImpl.saveStyle(styleEntities);
+				getUI().getNavigator().navigateTo(
+						StyleView.NAME);
+			}
+		});
+		
+		
+		cancel.addClickListener(e2->{
+			getUI().getNavigator().navigateTo(
+					StyleView.NAME);
+		});
+		
+		horizontalLayout.addComponents(update,cancel);
+		
+		setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+		addComponents(styleNo,styleDesc,countryComboBox,horizontalLayout);
+	
+	}
+
+}

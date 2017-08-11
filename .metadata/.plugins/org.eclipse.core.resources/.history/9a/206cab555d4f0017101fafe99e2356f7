@@ -1,0 +1,201 @@
+package com.example.BasicProjectUsingVaadin.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RestController;
+import com.example.BasicProjectUsingVaadin.dto.CountryDTO;
+import com.example.BasicProjectUsingVaadin.dto.StyleDTO;
+import com.example.BasicProjectUsingVaadin.dto.StyleOverViewFilterDto;
+import com.example.BasicProjectUsingVaadin.model.ClientEntity;
+import com.example.BasicProjectUsingVaadin.model.CountryEntity;
+import com.example.BasicProjectUsingVaadin.model.ItemEntity;
+import com.example.BasicProjectUsingVaadin.model.ItemSizeEntity;
+import com.example.BasicProjectUsingVaadin.model.SeasonEntity;
+import com.example.BasicProjectUsingVaadin.model.StyleEntity;
+import com.example.BasicProjectUsingVaadin.model.StyleOverFilter;
+import com.example.BasicProjectUsingVaadin.service.Service;
+
+@RestController
+public class PresenterDaoImpl implements PresenterDao 
+{
+	@Autowired
+	@Qualifier("springDataServiceImpl")
+	private Service service;
+
+	@Autowired
+	private EMDao emDao;
+
+	@Override
+	public Iterable<StyleDTO> findAllStyles() {
+		Iterable<StyleEntity> styleEntities = service.findAllStyles();
+		List<StyleDTO> styleEntities1 = new ArrayList<StyleDTO>();
+
+		for (StyleEntity styleEntity : styleEntities) {
+			StyleDTO styles = new StyleDTO();
+			styles.setId(styleEntity.getId());
+			styles.setStyleNo(styleEntity.getStyleNo());
+			styles.setDesc(styleEntity.getDesc());
+			styles.setSeason(styleEntity.getSeason());
+			CountryDTO countryDto = new CountryDTO();
+			countryDto.setId(styleEntity.getCountry().getId());
+			countryDto.setIsoCode(styleEntity.getCountry().getIsoCode());
+			countryDto.setName(styleEntity.getCountry().getName());
+			styles.setCountry(countryDto);
+			
+			styleEntities1.add(styles);
+		}
+		return styleEntities1;
+	}
+
+
+	@Override
+	public void deleteStyle(Integer id) {
+		service.deleteStyle(id);
+	}
+
+	@Override
+	public void saveItemSize(ItemSizeEntity itemSizeEntity) {
+
+	}
+
+	@Override
+	public Iterable<ItemSizeEntity> findAllItemSize() {
+		return null;
+	}
+
+	@Override
+	public ItemSizeEntity findByItemSizeId(Integer id) {
+		return null;
+	}
+
+	@Override
+	public void saveItem(ItemEntity itemEntity) {
+
+	}
+
+	@Override
+	public Iterable<ItemEntity> findAllItems() {
+		return null;
+	}
+
+	@Override
+	public ItemEntity findByItemId(Integer id) {
+		return null;
+	}
+
+	@Override
+	public boolean validateUser(String username, String password) {
+		return false;
+	}
+
+	@Override
+	public List<ItemEntity> findByItemNumber(String itemNo) {
+		return null;
+	}
+
+
+	@Override
+	public void saveStyle(StyleDTO styleDto) 
+	{
+		StyleEntity styleEntity=new StyleEntity();
+		styleEntity.setId(styleEntity.getId());
+		styleEntity.setDesc(styleEntity.getDesc());
+		styleEntity.setStyleNo(styleEntity.getDesc());
+		
+		CountryEntity countryEntity=new CountryEntity();
+		countryEntity.setId(styleEntity.getCountry().getId());
+		countryEntity.setIsoCode(styleEntity.getCountry().getIsoCode());
+		countryEntity.setName(styleEntity.getCountry().getName());
+		
+		styleEntity.setCountry(countryEntity);
+		service.saveStyle(styleEntity);
+		
+	}
+
+
+	@Override
+	public StyleDTO findByStyleId(Integer id) {
+		StyleEntity styleEntity=service.findByStyleId(id);
+		
+		StyleDTO styleDTO=new StyleDTO();
+		styleDTO.setId(styleEntity.getId());
+		styleDTO.setStyleNo(styleEntity.getStyleNo());
+		styleDTO.setDesc(styleEntity.getDesc());
+		
+		CountryDTO countryDTO=new CountryDTO();
+		countryDTO.setId(styleEntity.getCountry().getId());
+		countryDTO.setIsoCode(styleEntity.getCountry().getIsoCode());
+		countryDTO.setName(styleEntity.getCountry().getName());
+		styleDTO.setCountry(countryDTO);
+	
+		return styleDTO;
+	}
+
+	@Override
+	public StyleDTO findByStyleIdWithItems(Integer styleid) {
+		return null;
+	}
+
+
+	@Override
+	public boolean isStyleExist(StyleDTO styleEntity, SeasonEntity seasonEntity, ClientEntity clientEntity) {
+		return false;
+	}
+
+
+	@Override
+	public boolean isStyleExistV(StyleDTO styleEntity) {
+		StyleEntity styleEntity2=new StyleEntity();
+		styleEntity2.setId(styleEntity.getId());
+		styleEntity2.setDesc(styleEntity.getDesc());
+		styleEntity2.setStyleNo(styleEntity.getDesc());
+		
+		CountryEntity countryEntity=new CountryEntity();
+		countryEntity.setId(styleEntity.getCountry().getId());
+		countryEntity.setIsoCode(styleEntity.getCountry().getIsoCode());
+		countryEntity.setName(styleEntity.getCountry().getName());
+		
+		styleEntity2.setCountry(countryEntity);
+		//styleEntity2.setCountry(styleEntity.getCountry());
+		List<StyleEntity> styles = emDao.checkByStyleNo(styleEntity2);
+		
+		return false;
+	}
+
+	@Override
+	public Iterable<StyleDTO> filterByStyleNoAndCountry(StyleOverViewFilterDto filterEntity){
+		
+		StyleOverFilter filterStyleEntity=new StyleOverFilter();
+		filterStyleEntity.setStyleNo(filterEntity.getStyleNo());
+		CountryEntity country=new CountryEntity();
+		if(filterEntity.getCountry()!=null){
+		country.setId(filterEntity.getCountry().getId());
+		country.setIsoCode(filterEntity.getCountry().getIsoCode());
+		country.setName(filterEntity.getCountry().getName());
+		filterStyleEntity.setCountry(country);
+		}
+		Iterable<StyleEntity> styleEntities = service.filterByStyleNoAndCountry(filterStyleEntity);
+		List<StyleDTO> styleEntities1 = new ArrayList<StyleDTO>();
+
+		for (StyleEntity styleEntity : styleEntities) {
+			StyleDTO styles = new StyleDTO();
+			styles.setId(styleEntity.getId());
+			styles.setStyleNo(styleEntity.getStyleNo());
+			styles.setDesc(styleEntity.getDesc());
+			styles.setSeason(styleEntity.getSeason());
+			CountryDTO countryDto = new CountryDTO();
+			countryDto.setId(styleEntity.getCountry().getId());
+			countryDto.setIsoCode(styleEntity.getCountry().getIsoCode());
+			countryDto.setName(styleEntity.getCountry().getName());
+			styles.setCountry(countryDto);
+			styleEntities1.add(styles);
+		}
+		return styleEntities1;
+	}
+
+
+
+
+}

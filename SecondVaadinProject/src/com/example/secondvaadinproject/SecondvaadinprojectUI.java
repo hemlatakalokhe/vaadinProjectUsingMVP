@@ -1,0 +1,66 @@
+package com.example.secondvaadinproject;
+
+import java.io.File;
+
+import javax.servlet.annotation.WebServlet;
+
+import com.google.gwt.user.client.ui.HorizontalSplitPanel;
+import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.data.Property;
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.util.FilesystemContainer;
+import com.vaadin.data.util.TextFileProperty;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
+import com.vaadin.ui.Table;
+import com.vaadin.ui.UI;
+
+
+@SuppressWarnings("serial")
+@Theme("secondvaadinproject")
+public class SecondvaadinprojectUI extends UI {
+
+	@WebServlet(value = "/*", asyncSupported = true)
+	@VaadinServletConfiguration(productionMode = false, ui = SecondvaadinprojectUI.class)
+	public static class Servlet extends VaadinServlet {
+	}
+
+	@Override
+	protected void init(VaadinRequest request) {
+	
+		Link sample=new Link("Google Search", new ExternalResource("http://www.google.com"));
+		setContent(sample);
+	}
+
+//	private ComboBox docList=new ComboBox();
+	/*private Table docList=new Table();
+	private Label docView=new Label("Viewer",ContentMode.HTML);
+	
+	@Override
+	protected void init(VaadinRequest request) {
+		
+		docList.addValueChangeListener(new Property.ValueChangeListener() {
+			
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				docView.setPropertyDataSource(new TextFileProperty((File) event.getProperty().getValue()));
+			}
+		});
+		docList.setImmediate(true);
+		docList.setSelectable(true);
+		docList.setSizeFull();
+		com.vaadin.ui.HorizontalSplitPanel split=new com.vaadin.ui.HorizontalSplitPanel();
+		split.addComponents(docList,docView);
+		FilesystemContainer fileList=new FilesystemContainer(new File("D:/Hemlata"));
+		docList.setContainerDataSource(fileList);
+		
+		setContent(split);
+	}*/
+
+}

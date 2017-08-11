@@ -1,0 +1,17 @@
+package com.example.BasicProjectUsingVaadin;
+
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.VerticalLayout;
+
+@SpringView(name=TreeView.NAME)
+public class TreeView extends VerticalLayout implements View
+{
+	public static final String NAME = "Tree";
+	@Override
+	public void enter(ViewChangeEvent event) {
+
+	}
+
+}

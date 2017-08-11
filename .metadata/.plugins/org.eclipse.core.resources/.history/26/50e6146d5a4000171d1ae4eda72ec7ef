@@ -1,0 +1,34 @@
+package com.example.secondvaadinproject;
+
+import java.io.File;
+
+import javax.servlet.annotation.WebServlet;
+
+import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.data.util.FilesystemContainer;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.UI;
+
+
+@SuppressWarnings("serial")
+@Theme("secondvaadinproject")
+public class SecondvaadinprojectUI extends UI {
+
+	@WebServlet(value = "/*", asyncSupported = true)
+	@VaadinServletConfiguration(productionMode = false, ui = SecondvaadinprojectUI.class)
+	public static class Servlet extends VaadinServlet {
+	}
+
+	private ComboBox docList=new ComboBox();
+	@Override
+	protected void init(VaadinRequest request) {
+		setContent(docList);
+		
+		FilesystemContainer fileList=new FilesystemContainer(new File("D:/newFile"));
+		docList.setContainerDataSource(fileList);
+	}
+
+}

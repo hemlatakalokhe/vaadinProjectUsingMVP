@@ -1,0 +1,11 @@
+package com.example.BasicProjectUsingVaadin;
+
+import com.vaadin.spring.annotation.SpringView;
+
+@SpringView(name=UpdateView.NAME)
+public class UpdateView
+{
+
+	public static final String NAME = "Update";
+
+}

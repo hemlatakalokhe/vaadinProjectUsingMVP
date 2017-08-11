@@ -1,0 +1,17 @@
+127.0.0.1 - - [08/Jun/2017:09:32:49 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:49 +0530] "GET /VaadinProject/servlet/main.com.example.vaadinproject.VaadinprojectUI$Servlet HTTP/1.1" 200 2174
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:50 +0530] "GET /VaadinProject/VAADIN/vaadinBootstrap.js?v=7.7.6 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:50 +0530] "GET /VaadinProject/VAADIN/widgetsets/com.vaadin.DefaultWidgetSet/com.vaadin.DefaultWidgetSet.nocache.js?1496894570061 HTTP/1.1" 200 3295
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:50 +0530] "POST /VaadinProject/servlet/main.com.example.vaadinproject.VaadinprojectUI$Servlet?v-1496894570070 HTTP/1.1" 200 9097
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:52 +0530] "GET /VaadinProject/VAADIN/themes/vaadinproject/styles.css?v=7.7.6 HTTP/1.1" 200 324239
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:52 +0530] "GET /VaadinProject/VAADIN/themes/valo/fonts/open-sans/OpenSans-Regular-webfont.eot? HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:52 +0530] "GET /VaadinProject/VAADIN/themes/valo/fonts/open-sans/OpenSans-Light-webfont.eot? HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:52 +0530] "GET /VaadinProject/VAADIN/themes/valo/fonts/open-sans/OpenSans-Semibold-webfont.eot? HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:52 +0530] "GET /VaadinProject/VAADIN/themes/valo/shared/img/spinner.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:32:52 +0530] "GET /VaadinProject/VAADIN/themes/base/fonts/fontawesome-webfont.eot? HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:33:00 +0530] "POST /VaadinProject/UIDL/?v-uiId=0 HTTP/1.1" 200 2504
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:33:00 +0530] "GET /VaadinProject/VAADIN/themes/base/fonts/themeicons-webfont.eot? HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:37:52 +0530] "POST /VaadinProject/HEARTBEAT/?v-uiId=0 HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:42:52 +0530] "POST /VaadinProject/HEARTBEAT/?v-uiId=0 HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:47:52 +0530] "POST /VaadinProject/HEARTBEAT/?v-uiId=0 HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [08/Jun/2017:09:52:52 +0530] "POST /VaadinProject/HEARTBEAT/?v-uiId=0 HTTP/1.1" 200 -

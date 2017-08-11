@@ -1,0 +1,7 @@
+package com.example.SpringVaadinDemo;
+
+import com.vaadin.ui.VerticalLayout;
+
+public class MainView  extends VerticalLayout{
+
+}

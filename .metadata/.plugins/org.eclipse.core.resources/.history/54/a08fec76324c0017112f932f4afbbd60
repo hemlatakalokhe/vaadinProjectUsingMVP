@@ -1,0 +1,7 @@
+package com.example.BasicProjectUsingVaadin;
+
+public class RefreshView {
+
+	public static final String NAME = "Refresh";
+
+}

@@ -1,0 +1,13 @@
+package com.example.BasicProjectUsingVaadin;
+
+import com.vaadin.spring.annotation.SpringView;
+
+@SpringView(name=SaveView.NAME)
+public class SaveView
+{
+
+	public static final String NAME = "Save";
+	
+	
+	
+}

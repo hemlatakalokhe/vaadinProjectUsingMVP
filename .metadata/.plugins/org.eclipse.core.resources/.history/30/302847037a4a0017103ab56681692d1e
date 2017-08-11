@@ -1,0 +1,9 @@
+package com.example.SpringVaadinDemo;
+
+public class TestAnnotationClass 
+{
+	public String message()
+	{
+		return "Annotated View";
+	}
+}

@@ -1,0 +1,44 @@
+package com.example.BasicProjectUsingVaadin;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.BasicProjectUsingVaadin.impl.MasterServiceImpl;
+import com.example.BasicProjectUsingVaadin.impl.SpringDataServiceImpl;
+import com.example.BasicProjectUsingVaadin.model.CountryEntity;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.VerticalLayout;
+
+@SpringView(name=SaveView.NAME)
+public class SaveView extends VerticalLayout implements View
+{
+
+	@Autowired
+	private MasterServiceImpl masterServiceImpl;
+	
+	@Autowired
+	private SpringDataServiceImpl serviceImpl;
+	
+	public static final String NAME = "Save";
+	private TextField styleNo;
+	private TextField styleDesc;
+
+	@Override
+	public void enter(ViewChangeEvent event) 
+	{
+		styleNo=new TextField("Enter Style Number");
+		styleDesc=new TextField("Enter Style Description");
+		
+		Iterable<CountryEntity> countryEntities=masterServiceImpl.findAllCountry();
+		ComboBox<CountryEntity> countryComboBox=new ComboBox<CountryEntity>();
+		countryComboBox.setItems((Collection<CountryEntity>) countryEntities);
+	}
+	
+	
+	
+}

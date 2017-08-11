@@ -1,0 +1,17 @@
+package com.example.SpringVaadinDemo;
+
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+
+@SpringUI
+public class VaadinUI extends UI{
+
+	@Override
+	protected void init(VaadinRequest request) {
+		Button submit=new Button("SUBMIT");
+		setContent(submit);
+	}
+
+}

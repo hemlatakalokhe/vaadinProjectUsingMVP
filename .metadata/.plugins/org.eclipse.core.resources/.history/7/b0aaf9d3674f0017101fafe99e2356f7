@@ -1,0 +1,6 @@
+package com.example.BasicProjectUsingVaadin.dao.impl;
+
+public class Snippet {
+	Session on spring
+}
+

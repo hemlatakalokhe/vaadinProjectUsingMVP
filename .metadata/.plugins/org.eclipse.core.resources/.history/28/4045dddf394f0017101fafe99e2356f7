@@ -1,0 +1,5 @@
+package com.example.BasicProjectUsingVaadin.dto;
+
+public class ClientDTO {
+
+}

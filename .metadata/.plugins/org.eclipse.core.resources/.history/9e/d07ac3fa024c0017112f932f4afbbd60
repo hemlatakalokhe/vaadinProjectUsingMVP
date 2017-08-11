@@ -1,0 +1,8 @@
+package com.example.BasicProjectUsingVaadin;
+
+public class UpdateView
+{
+
+	public static final String NAME = "Update";
+
+}

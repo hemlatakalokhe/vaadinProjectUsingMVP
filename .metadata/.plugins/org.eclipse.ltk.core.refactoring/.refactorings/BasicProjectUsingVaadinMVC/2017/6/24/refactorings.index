@@ -1,0 +1,58 @@
+1497241261928	Rename method 'isStyleExistV'
+1497244558788	Rename field 'presenterDao'
+1497251797328	Copy compilation units
+1497251817003	Rename type 'ItemSizeEntity'
+1497251881107	Rename type 'LoginEntity'
+1497251908567	Rename type 'SeasonEntity'
+1497251932336	Rename type 'SizeEntity'
+1497252122931	Rename type 'MasteRestService'
+1497257100969	Rename type 'CountryDto'
+1497257119063	Rename type 'SeasonDto'
+1497257127980	Rename type 'SizeDto'
+1497257146309	Rename type 'StyleDto'
+1497261543295	Delete element
+1497261557310	Rename type 'UpdateView'
+1497269301493	Delete element
+1497269307105	Move compilation unit
+1497269312020	Move compilation unit
+1497269316436	Move compilation unit
+1497328413283	Rename local variable 'styleEntity'
+1497328440893	Rename local variable 'pStyle'
+1497328457555	Rename local variable 'styleEntity'
+1497328465646	Rename local variable 'style'
+1497328733067	Rename type 'PresenterDao'
+1497328754038	Rename type 'PresenterDaoImpl'
+1497329041886	Rename method 'isStyleExistV'
+1497332589557	Rename type 'ClientDTO'
+1497332607849	Rename type 'CountryDTO'
+1497332620329	Rename type 'SizeDTO'
+1497332630305	Rename type 'LoginDTO'
+1497332640819	Rename type 'SeasonDTO'
+1497333868537	Rename type 'StyleDTO'
+1497333946455	Delete element
+1497333966897	Rename type 'ItemDTO'
+1497333974898	Rename type 'ItemSizeDTO'
+1497334012019	Delete element
+1497334023771	Delete element
+1497349293446	Rename method 'saveStyle'
+1497350397853	Rename local variable 'country'
+1497350445985	Rename local variable 'style'
+1497350667703	Rename method 'convertToEntity'
+1497350708715	Rename method 'convertToDTO'
+1497350915668	Rename local variable 'countryEntity'
+1497357599988	Delete element
+1497413058510	Move compilation unit
+1497413225028	Delete element
+1497413227325	Delete element
+1497413265631	Rename type 'PresenterMasterDao'
+1497413280065	Rename type 'PresenterMasterDaoImpl'
+1497413302340	Rename type 'PresenterServiceDao'
+1497413319478	Rename type 'PresenterServiceDaoImpl'
+1497413950420	Copy packages
+1497413969369	Copy compilation units
+1497418625266	Rename local variable 'styleDto'
+1497420177922	Rename type 'UpdateView'
+1497421487289	Delete element
+1497432311800	Delete elements
+1497434483901	Delete elements
+1497505422622	Copy compilation units

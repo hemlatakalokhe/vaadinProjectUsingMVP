@@ -1,0 +1,116 @@
+package com.example.BasicProjectUsingVaadin;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.example.BasicProjectUsingVaadin.impl.MasterServiceImpl;
+import com.example.BasicProjectUsingVaadin.impl.SpringDataServiceImpl;
+import com.example.BasicProjectUsingVaadin.model.CountryEntity;
+import com.example.BasicProjectUsingVaadin.model.ItemSizeEntity;
+import com.example.BasicProjectUsingVaadin.model.StyleEntity;
+import com.example.BasicProjectUsingVaadin.service.Service;
+import com.vaadin.data.provider.DataProvider;
+import com.vaadin.data.provider.ListDataProvider;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.VaadinSession;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.Grid;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.VerticalLayout;
+
+@SpringView(name=StyleView.NAME)
+public class StyleView extends VerticalLayout implements View
+{
+
+	private static final long serialVersionUID = 1L;
+	public static final String NAME = "Style";
+	//public static String Name="Style";
+	private Label label;
+	
+	@Autowired
+//	@Qualifier("serviceImpl")
+	private MasterServiceImpl masterServiceImpl;
+	
+	@Autowired
+//	@Qualifier("serviceImpl")
+	private SpringDataServiceImpl serviceImpl;
+	
+	
+	@PostConstruct
+	public void init()
+	{
+	
+		/*Object id=VaadinSession.getCurrent().getAttribute("countryId");
+		
+		
+	
+		
+		Object id=VaadinSession.getCurrent().getAttribute("countryId");
+		int i=Integer.parseInt(id.toString()) ;
+		
+		int i = Integer.valueOf((String) VaadinSession.getCurrent().getAttribute("countryId"));*/
+		
+		
+		TextField filter=new TextField();
+		
+		Iterable<ItemSizeEntity>people = serviceImpl.findAllItemSize();
+		/*List<CountryEntity> list=new ArrayList<CountryEntity>();
+		list.add(people);*/
+		label = new Label("In Style View  " );
+		Grid<ItemSizeEntity> grid=new Grid<ItemSizeEntity>(ItemSizeEntity.class);
+		grid.setSizeFull();
+		//grid.setColumns("id","desc");
+
+        ListDataProvider<ItemSizeEntity> dataProvider = DataProvider.ofCollection((Collection<ItemSizeEntity>) people);
+        grid.setDataProvider(dataProvider);
+        
+        filter.addValueChangeListener(event -> {
+            dataProvider.setFilter(ItemSizeEntity::getQuantity, quantity -> {
+                if (quantity == null) {
+                    return false;
+                }
+                String companyLower = company.toLowerCase(Locale.ENGLISH);
+                String filterLower = event.getValue().toLowerCase(Locale.ENGLISH);
+                return companyLower.contains(filterLower);
+            });
+        });
+	
+		addComponents(label,grid);
+	}
+	
+	
+	@Override
+	public void enter(ViewChangeEvent event) {
+		
+	}
+	/*
+	public Iterable<StyleEntity> findStylesById()
+	{
+		return null;
+		
+	}
+*/
+}
+
+
+/*//Integer id= Integer.parseInt((String) VaadinSession.getCurrent().getAttribute("Sid"));
+Grid<StyleEntity> grid=new Grid<StyleEntity>(StyleEntity.class);
+grid.setColumns("id","desc");
+	
+	Grid<StyleEntity> grid=new Grid<StyleEntity>(StyleEntity.class);
+	grid.setColumnOrder("id","desc");
+	//grid.setItems(serviceImpl.findAllStyles());
+	Iterable<StyleEntity> style=serviceImpl.findAllStyles();
+	for (StyleEntity styleEntity : style) {
+		grid.setItems(styleEntity);
+		System.out.println(styleEntity.getDesc());
+	}
+	*/

@@ -1,0 +1,22 @@
+package com.example.BasicProjectUsingVaadin;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.BasicProjectUsingVaadin.impl.SpringDataServiceImpl;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+
+public class RefreshView implements View{
+
+	public static final String NAME = "Refresh";
+	
+	@Autowired
+	private SpringDataServiceImpl serviceImpl;
+
+	@Override
+	public void enter(ViewChangeEvent event) 
+	{
+		
+	}
+
+}

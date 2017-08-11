@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:LoginProject"/>
+  <module moduleId="org.eclipse.jst.jee.server:BasicProjectUsingVaadin7" serverId="Tomcat v8.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:VaadinProject" serverId="Tomcat v8.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:VaadinProjectUsingBonprix" serverId="Tomcat v8.0 Server at localhost"/>
+</modules>

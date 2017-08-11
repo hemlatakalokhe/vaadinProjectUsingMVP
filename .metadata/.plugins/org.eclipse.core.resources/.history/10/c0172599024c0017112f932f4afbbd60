@@ -1,0 +1,5 @@
+package com.example.BasicProjectUsingVaadin;
+
+public class SaveView {
+
+}

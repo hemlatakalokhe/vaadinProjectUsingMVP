@@ -1,0 +1,10 @@
+package com.example.BasicProjectUsingVaadin;
+
+public class SaveView
+{
+
+	public static final String NAME = "Save";
+	
+	
+	
+}

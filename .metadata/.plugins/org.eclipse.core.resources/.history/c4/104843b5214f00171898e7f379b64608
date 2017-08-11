@@ -1,0 +1,5 @@
+package com.example.BasicProjectUsingVaadin.dao;
+
+public class PresenterDaoImpl implements PresenterDao{
+
+}

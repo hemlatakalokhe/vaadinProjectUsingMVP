@@ -1,0 +1,30 @@
+package com.example.BasicProjectUsingVaadin;
+
+import java.util.Set;
+
+import com.example.BasicProjectUsingVaadin.model.StyleEntity;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.VaadinSession;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.VerticalLayout;
+
+@SpringView(name=UpdateView.NAME)
+public class UpdateView extends VerticalLayout implements View
+{
+
+	public static final String NAME = "Update";
+	private Label label;
+
+	@Override
+	public void enter(ViewChangeEvent event) 
+	{
+		Set<StyleEntity> style=(Set<StyleEntity>) VaadinSession.getCurrent().getAttribute("styleData");
+		for (StyleEntity styleEntity : style) {
+			label=new Label(((StyleEntity) style).getDesc());
+		}
+		addComponent(label);
+	}
+
+}

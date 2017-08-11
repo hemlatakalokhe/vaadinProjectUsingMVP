@@ -1,0 +1,27 @@
+package com.example.SpringVaadinDemo;
+
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
+
+@SpringUI
+public class VaadinUI extends UI{
+
+	@Override
+	protected void init(VaadinRequest request) {
+		Button submit=new Button("SUBMIT");
+		submit.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		setContent(submit);
+	}
+
+}
